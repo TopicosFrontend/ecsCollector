@@ -1,0 +1,7 @@
+{
+  "name": "tes",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
