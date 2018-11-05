@@ -1,0 +1,12 @@
+page-info {
+  .btn-group {
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+    button {
+      font-size: 17px;
+      margin: 20px 0;
+      padding: 30px 0;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+<!--
+  Generated template for the CodesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Codigos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+    </ion-row>
+    <ion-row>
+      <ion-col col-8>
+        <ion-item>
+          <ion-input type="number" placeholder="Cantidad De Codigos Para Generar" [(ngModel)]="quantity"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button full color="dark" (click)="generateCode(quantity)">Generar</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-item *ngFor="let data of codes">
+    <div class="code">
+      <p class="text">{{data.first}}-{{data.second}}</p>
+    </div>
+  </ion-item>
+</ion-content>

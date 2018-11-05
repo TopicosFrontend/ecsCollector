@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Información Personal</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col col-5>
+        <img width="100%" src="assets/imgs/user.png">
+      </ion-col>
+    </ion-row>
+    <ion-row class="info">
+      <ion-col col-12>
+        <h4>{{collector.name}}</h4>
+        <p>Nombre</p>
+        <hr>
+      </ion-col>
+      <ion-col col-12>
+        <h4>{{collector.cellphone}}</h4>
+        <p>Celular</p>
+        <hr>
+      </ion-col>
+      <ion-col col-12>
+        <h4>{{collector.status}}</h4>
+        <p>Estado</p>
+        <hr>
+      </ion-col>
+      <ion-col col-12>
+        <h4>{{collector.code}}</h4>
+        <p>Codigo</p>
+        <hr>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

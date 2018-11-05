@@ -1,0 +1,36 @@
+<!--
+  Generated template for the HouseholdPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Viviendas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-grid>
+      <ion-item *ngFor="let data of households">
+        <ion-row>
+          <ion-col col-3>
+            <img width="100%" src="assets/imgs/map.jpeg">
+          </ion-col>
+          <ion-col col-9>
+            <h2>{{data.holder}}</h2>
+            <h3>{{data.direction}}</h3>
+            <div class="code">
+              <p>Code:</p>
+              <p class="text">{{data.code}}</p>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-grid>
+  </ion-list>
+</ion-content>
