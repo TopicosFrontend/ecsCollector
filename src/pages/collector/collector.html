@@ -14,25 +14,37 @@
     </ion-row>
     <ion-row class="info">
       <ion-col col-12>
-        <h4>{{collector.name}}</h4>
+        <h4>{{collector.user}}</h4>
         <p>Nombre</p>
-        <hr>
+      </ion-col>
+      <ion-col col-12>
+        <h4>{{collector.nombre}}</h4>
+        <p>Nombre</p>
       </ion-col>
       <ion-col col-12>
         <h4>{{collector.cellphone}}</h4>
         <p>Celular</p>
-        <hr>
-      </ion-col>
-      <ion-col col-12>
-        <h4>{{collector.status}}</h4>
-        <p>Estado</p>
-        <hr>
-      </ion-col>
-      <ion-col col-12>
-        <h4>{{collector.code}}</h4>
-        <p>Codigo</p>
-        <hr>
       </ion-col>
     </ion-row>
+    
+    <h4>Codigos</h4>
+    <ion-card *ngFor="let data of collector.codes">
+      <ion-card-content>
+        <ion-row class="code">
+          <ion-col col-5>
+            <h4>{{data.cfn}}</h4>
+            <p>CFN</p>
+          </ion-col>
+          <ion-col col-5>
+            <h4>{{data.ecn}}</h4>
+            <p>ECN</p>
+          </ion-col>
+          <ion-col col-2>
+            <h4>{{data.in_use ? "En Uso" : "No Usado"}}</h4>
+            <p>Estado</p>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
   </ion-grid>
 </ion-content>

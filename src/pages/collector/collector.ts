@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpClient  } from '@angular/common/http';
 
 /**
  * Generated class for the CollectorPage page.
@@ -14,18 +15,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'collector.html',
 })
 export class CollectorPage {
-    collector = {
-      name: "Esteban Silva",
-      cellphone: 3003162007,
-      code: "200033040-31223312",
-      status: "Activo"
-    }
+  collector = {}
+  server = "http://localhost:8000/collector/get_info/"
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CollectorPage');
+    const httpOptions = {
+      withCredentials: true
+    };
+
+    this.http.get(this.server, httpOptions).subscribe(response => {
+      this.collector = response
+      console.log(response)
+    });
   }
 
 }

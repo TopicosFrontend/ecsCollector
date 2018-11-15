@@ -20,7 +20,7 @@
     <ion-row>
       <ion-col col-8>
         <ion-item>
-          <ion-input type="number" placeholder="Cantidad De Codigos Para Generar" [(ngModel)]="quantity"></ion-input>
+          <ion-input type="number" placeholder="Cantidad De Codigos Para Generar" [(ngModel)]="number"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col col-4>
@@ -31,7 +31,7 @@
 
   <ion-item *ngFor="let data of codes">
     <div class="code">
-      <p class="text">{{data.first}}-{{data.second}}</p>
+      <p class="text">{{data.cfn}}-{{data.ecn}}</p>
     </div>
   </ion-item>
 </ion-content>

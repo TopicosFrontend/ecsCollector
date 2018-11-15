@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage'
+import { HttpClient  } from '@angular/common/http';
 
 /**
  * Generated class for the CodesPage page.
@@ -15,9 +16,12 @@ import { Storage } from '@ionic/storage'
   templateUrl: 'codes.html',
 })
 export class CodesPage {
+  number = null
   codes = []
+  server = "http://localhost:8000/collector/generate_codes/"
 
-  constructor(public navCtrl: NavController, private storage: Storage, public navParams: NavParams) {
+
+  constructor(public navCtrl: NavController, private storage: Storage, public navParams: NavParams, public http: HttpClient) {
   }
 
   ionViewDidLoad() {
@@ -29,19 +33,15 @@ export class CodesPage {
   }
 
   generateCode(number) {
-    this.codes = [];
+    const httpOptions = {
+      withCredentials: true
+    };
 
-    var num = number;
-    var i:number;
-
-    for(let i = number; i >= 1; i--) {
-       var code = {
-         first: Math.floor(10000000 + Math.random() * 90000000),
-         second: Math.floor(1000 + Math.random() * 9000)
-       }
-       this.codes.push(code);
-    }
-    this.storage.set('actual_codes', this.codes);
+    this.http.post(this.server + "?number=" + this.number, httpOptions).subscribe(response => {
+      console.log(response)
+      this.codes = response["codes"]
+      this.storage.set('actual_codes', this.codes);
+    });
   }
 
 }
