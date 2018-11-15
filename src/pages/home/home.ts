@@ -8,8 +8,8 @@ import { HttpHeaders, HttpClient  } from '@angular/common/http';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  username = "jaimito";
-  password = "hola1234";
+  username = "";
+  password = "";
 
   server = "http://localhost:8000/collector/login/"
 
