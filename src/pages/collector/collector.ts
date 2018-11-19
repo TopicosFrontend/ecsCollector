@@ -16,7 +16,8 @@ import { HttpClient  } from '@angular/common/http';
 })
 export class CollectorPage {
   collector = {}
-  server = "http://localhost:8000/collector/get_info/"
+
+  server = "http://ecsbackend.mybluemix.net/collector/get_info/"
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
   }

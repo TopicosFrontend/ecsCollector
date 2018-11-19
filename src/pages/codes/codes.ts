@@ -13,23 +13,24 @@ import { HttpClient  } from '@angular/common/http';
 @IonicPage()
 @Component({
   selector: 'page-codes',
-  templateUrl: 'codes.html',
+  templateUrl: 'codes.html'
 })
 export class CodesPage {
   number = null
   codes = []
-  server = "http://localhost:8000/collector/generate_codes/"
+
+  server = "http://ecsbackend.mybluemix.net/collector/generate_codes/"
 
 
   constructor(public navCtrl: NavController, private storage: Storage, public navParams: NavParams, public http: HttpClient) {
   }
 
   ionViewDidLoad() {
-    this.storage.get('actual_codes').then((val) => {
-      if (val != null) {
-        this.codes = val;
-      }
-    });
+    // this.storage.get('actual_codes').then((val) => {
+    //   if (val != null) {
+    //     this.codes = val;
+    //   }
+    // });
   }
 
   generateCode(number) {
@@ -37,7 +38,7 @@ export class CodesPage {
       withCredentials: true
     };
 
-    this.http.post(this.server + "?number=" + this.number, httpOptions).subscribe(response => {
+    this.http.get(this.server + "?number=" + this.number, httpOptions).subscribe(response => {
       console.log(response)
       this.codes = response["codes"]
       this.storage.set('actual_codes', this.codes);

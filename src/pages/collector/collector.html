@@ -26,20 +26,20 @@
         <p>Celular</p>
       </ion-col>
     </ion-row>
-    
+
     <h4>Codigos</h4>
     <ion-card *ngFor="let data of collector.codes">
       <ion-card-content>
         <ion-row class="code">
-          <ion-col col-5>
+          <ion-col col-4>
             <h4>{{data.cfn}}</h4>
             <p>CFN</p>
           </ion-col>
-          <ion-col col-5>
+          <ion-col col-4>
             <h4>{{data.ecn}}</h4>
             <p>ECN</p>
           </ion-col>
-          <ion-col col-2>
+          <ion-col col-4 class="{{data.in_use ? 'active' : 'not-active'}}">
             <h4>{{data.in_use ? "En Uso" : "No Usado"}}</h4>
             <p>Estado</p>
           </ion-col>

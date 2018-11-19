@@ -11,8 +11,7 @@ export class HomePage {
   username = "";
   password = "";
 
-  server = "http://localhost:8000/collector/login/"
-
+  server = "http://ecsbackend.mybluemix.net/collector/login/"
 
   constructor(public navCtrl: NavController, public http: HttpClient) {
 
@@ -29,7 +28,7 @@ export class HomePage {
 
     this.http.post(this.server, req, httpOptions).subscribe(response => {
       console.log(response)
-      if (response["state"] == 'true') {
+      if (response["state"]) {
           this.navCtrl.setRoot(InfoPage);
       }else{
         alert("Copiaste mal tus credenciasles")
